@@ -24,6 +24,22 @@ const router = createRouter({
       // this generates a separate chunk (Filters.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/FiltersView.vue')
+    },
+    {
+      path: '/slots-examples',
+      name: 'slots-examples',
+      // route level code-splitting
+      // this generates a separate chunk (SlotsExamples.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/SlotsExamplesView.vue')
+    },
+    {
+      path: '/pizza',
+      name: 'pizza',
+      // route level code-splitting
+      // this generates a separate chunk (Pizza.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/PizzaView.vue')
     }
   ]
 })
