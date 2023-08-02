@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import BaseLayout from '@/components/BaseLayout.vue'
 import FancyButton from '@/components/FancyButton.vue'
+import FancyList from '@/components/FancyList.vue'
 import MyComponent from '@/components/MyComponent.vue'
 import SubmitButton from '@/components/SubmitButton.vue'
 
@@ -54,5 +55,15 @@ const message = ref('Custom text')
 
     <h2>Scoped Slots</h2>
     <MyComponent v-slot="slotProps"> {{ slotProps.text }} {{ slotProps.count }} </MyComponent>
+
+    <h2>Fancy List Example</h2>
+    <FancyList api-url="foo/bar/">
+      <template #item="{ body, username, likes }">
+        <div class="item">
+          <p>{{ body }}</p>
+          <p>by {{ username }} | {{ likes }} likes</p>
+        </div>
+      </template>
+    </FancyList>
   </div>
 </template>
