@@ -56,7 +56,7 @@ export const sauceMap = {
   [Sauce.PESTO]: {
     key: Sauce.PESTO,
     name: 'Pesto',
-    color: '#275425'
+    color: '#3f5425'
   },
   [Sauce.OIL]: {
     key: Sauce.OIL,
@@ -71,7 +71,7 @@ export const sauceMap = {
 }
 
 export enum Topping {
-  CHEESE = 'cheese',
+  MOZZARELLA = 'mozzarella',
   BASIL = 'basil',
   PEPPERONI = 'pepperoni',
   ONIONS = 'onions',
@@ -82,9 +82,9 @@ export enum Topping {
 }
 
 export const toppingMap = {
-  [Topping.CHEESE]: {
-    key: Topping.CHEESE,
-    name: 'Cheese'
+  [Topping.MOZZARELLA]: {
+    key: Topping.MOZZARELLA,
+    name: 'Mozzarella'
   },
   [Topping.BASIL]: {
     key: Topping.BASIL,

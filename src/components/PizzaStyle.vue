@@ -1,5 +1,7 @@
 <script setup lang="ts">
+// credits to https://codepen.io/baumannzone/pen/ZEBYEOm
 import { CrustComposition, CrustStyle, Sauce, Topping } from '@/types'
+import { computed } from 'vue'
 
 export interface Props {
   crustStyle: {
@@ -23,7 +25,14 @@ export interface Props {
   }[]
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
+
+const chorreoColor = computed(() => {
+  if (props.toppings.some((topping) => topping.key===Topping.MOZZARELLA)) {
+    return "#ebe5b2";
+  }
+  return props.sauce.color;
+})
 </script>
 
 <template>
@@ -34,7 +43,9 @@ defineProps<Props>()
         :key="topping.key"
         class="topping"
         :class="topping.key"
-      ></div>
+      >
+        <div v-if="topping.key === 'basil'" class="leaf"></div>
+      </div>
       <div class="slices">
         <div class="slice slice-1"></div>
         <div class="slice slice-2"></div>
@@ -61,6 +72,19 @@ defineProps<Props>()
   box-shadow: 0 0 0px v-bind('crustStyle.size') v-bind('crustComposition.color');
 }
 
+.pizza:after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 50px;
+  left: 198px;
+  background-color: v-bind('chorreoColor');
+  border-radius: 0 0 10px 10px;
+  box-shadow: 12px -1px v-bind('chorreoColor');
+  transform: translateX(3px) translateY(-1px);
+  animation: chorreo 4s ease-out infinite;
+}
+
 .pizza .topping {
   position: absolute;
   width: 400px;
@@ -69,32 +93,20 @@ defineProps<Props>()
   overflow: hidden;
 }
 
-.pizza .cheese {
+.pizza .mozzarella {
   z-index: 0;
-  background-image: radial-gradient(circle at 5px 5px, #ffeb3b 2px, transparent 10px);
-  background-size: 15px 15px;
+  background-image: radial-gradient(circle at 30px 30px, #ebe5b2 5px, transparent 60px);
+  background-size: 60px 60px;
 }
 
-.pizza .basil {
-  z-index: 16;
-  background-image: radial-gradient(
-      circle at 10px 0px,
-      transparent 6px,
-      #4caf50 5px,
-      #4caf50 11px,
-      transparent 13px
-    ),
-    radial-gradient(
-      circle at 0px 10px,
-      transparent 6px,
-      #4caf50 5px,
-      #4caf50 11px,
-      transparent 13px
-    );
-  background-size:
-    80px 90px,
-    50px 50px;
-  transform: rotate(69deg);
+.pizza .basil .leaf {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: #4caf50;
+  z-index: 13;
+  border-radius: 100px 0;
+  box-shadow: 50px 100px #4caf50, 150px 120px #4caf50, 130px 40px #4caf50, 200px 250px #4caf50, 250px 300px #4caf50, 300px 100px #4caf50, 350px 200px #4caf50, 35px 280px #4caf50, 150px 320px #4caf50, 130px 40px #4caf50, 100px 200px #4caf50, 250px 60px #4caf50, 230px 160px #4caf50;
 }
 
 .pizza .pepperoni {
@@ -206,5 +218,26 @@ defineProps<Props>()
 
 .pizza .slices .slice-4 {
   transform: rotate(180deg);
+}
+
+@-moz-keyframes chorreo {
+  50% {
+    height: 100px;
+  }
+}
+@-webkit-keyframes chorreo {
+  50% {
+    height: 100px;
+  }
+}
+@-o-keyframes chorreo {
+  50% {
+    height: 100px;
+  }
+}
+@keyframes chorreo {
+  50% {
+    height: 100px;
+  }
 }
 </style>

@@ -16,7 +16,7 @@ import {
 const selectedCrustStyle = ref(CrustStyle.PAN)
 const selectedCrustComposition = ref(CrustComposition.WHITE)
 const selectedSauce = ref(Sauce.TOMATO)
-const selectedToppings = ref([Topping.CHEESE, Topping.BASIL])
+const selectedToppings = ref([Topping.MOZZARELLA, Topping.BASIL])
 </script>
 
 <template>
