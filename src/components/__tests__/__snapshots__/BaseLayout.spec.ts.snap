@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BaseLayout > with all slots 1`] = `
+"<div class=\\"container\\">
+  <header>header content</header>
+  <main>Foo</main>
+  <footer>footer content</footer>
+</div>"
+`;
+
+exports[`BaseLayout > with default content 1`] = `
+"<div class=\\"container\\">
+  <header></header>
+  <main></main>
+  <footer></footer>
+</div>"
+`;

@@ -5,7 +5,7 @@ export interface Props {
   apiUrl: string
 }
 
-const props = defineProps<Props>()
+defineProps<Props>()
 
 interface Item {
   id: number
@@ -17,7 +17,6 @@ interface Item {
 const items = ref<Item[]>([])
 
 function getExternalData(): Promise<Item[]> {
-  console.info(`Calling ${props.apiUrl}`)
   return new Promise((resolve) =>
     resolve([
       { id: 1, body: "Cyborgs don't feel pain.", username: 'kyle_reese', likes: 3 },
@@ -33,6 +32,7 @@ onMounted(async () => {
 </script>
 
 <template>
+  <span>Calling {{ apiUrl }}</span>
   <ul>
     <li v-for="item in items" :key="item.id">
       <slot name="item" v-bind="item">{{ item.body }}</slot>

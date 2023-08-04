@@ -1,0 +1,14 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`PizzaSlots > with custom slot 1`] = `
+"<h1>pan</h1>
+<h2>whole</h2>
+<h3>tomato</h3>
+<h4>mozzarella, basil</h4>"
+`;
+
+exports[`PizzaSlots > with default content 1`] = `
+"<div style=\\"border: 15px solid #996d1c; background-color: rgb(153, 109, 28); color: black; margin: 5px; padding: 2px;\\">Pan crust thicker and fluffer, made with whole wheat flour <div style=\\"background-color: rgb(209, 53, 36); color: black; margin: 5px; padding: 2px;\\">Tomato sauce <div><span style=\\"background-color: lightgrey; color: black; margin: 2px; padding: 2px;\\">Mozzarella</span><span style=\\"background-color: lightgrey; color: black; margin: 2px; padding: 2px;\\">Basil</span></div>
+  </div>
+</div>"
+`;

@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FancyList > with default content 1`] = `
+"<span>Calling foo/bar/</span>
+<ul>
+  <li>Cyborgs don't feel pain.</li>
+  <li>Can you stop it?</li>
+  <li>Who sent you?</li>
+</ul>"
+`;
+
+exports[`FancyList > with item slot 1`] = `
+"<span>Calling foo/bar/</span>
+<ul>
+  <li>Custom render: Cyborgs don't feel pain.</li>
+  <li>Custom render: Can you stop it?</li>
+  <li>Custom render: Who sent you?</li>
+</ul>"
+`;
