@@ -28,22 +28,26 @@ export interface Props {
 const props = defineProps<Props>()
 
 const chorreoColor = computed(() => {
-  if (props.toppings.some((topping) => topping.key===Topping.MOZZARELLA)) {
-    return "#ebe5b2";
+  if (props.toppings.some((topping) => topping.key === Topping.MOZZARELLA)) {
+    return '#ebe5b2'
   }
-  return props.sauce.color;
+  return props.sauce.color
 })
+const containsPineapple = computed(() =>
+  props.toppings.some((topping) => topping.key === Topping.PINEAPPLES)
+)
 </script>
 
 <template>
+  <img
+    v-if="containsPineapple"
+    class="massacred-meme"
+    alt="massacred meme"
+    src="@/assets/massacred-meme.png"
+  />
   <div class="pizza-container">
     <div class="pizza">
-      <div
-        v-for="topping in toppings"
-        :key="topping.key"
-        class="topping"
-        :class="topping.key"
-      >
+      <div v-for="topping in toppings" :key="topping.key" class="topping" :class="topping.key">
         <div v-if="topping.key === 'basil'" class="leaf"></div>
       </div>
       <div class="slices">
@@ -106,7 +110,20 @@ const chorreoColor = computed(() => {
   background-color: #4caf50;
   z-index: 13;
   border-radius: 100px 0;
-  box-shadow: 50px 100px #4caf50, 150px 120px #4caf50, 130px 40px #4caf50, 200px 250px #4caf50, 250px 300px #4caf50, 300px 100px #4caf50, 350px 200px #4caf50, 35px 280px #4caf50, 150px 320px #4caf50, 130px 40px #4caf50, 100px 200px #4caf50, 250px 60px #4caf50, 230px 160px #4caf50;
+  box-shadow:
+    50px 100px #4caf50,
+    150px 120px #4caf50,
+    130px 40px #4caf50,
+    200px 250px #4caf50,
+    250px 300px #4caf50,
+    300px 100px #4caf50,
+    350px 200px #4caf50,
+    35px 280px #4caf50,
+    150px 320px #4caf50,
+    130px 40px #4caf50,
+    100px 200px #4caf50,
+    250px 60px #4caf50,
+    230px 160px #4caf50;
 }
 
 .pizza .pepperoni {
@@ -190,6 +207,19 @@ const chorreoColor = computed(() => {
   background-size: 80px 80px;
 }
 
+.pizza .pineapples {
+  transform: rotate(-10deg);
+  z-index: 2;
+  background-image: radial-gradient(
+    circle at 30px 30px,
+    transparent 5px,
+    #f6e422 12px,
+    #f6e422 28px,
+    transparent 32px
+  );
+  background-size: 100px 100px;
+}
+
 .pizza .slices {
   display: flex;
   position: relative;
@@ -225,19 +255,26 @@ const chorreoColor = computed(() => {
     height: 100px;
   }
 }
+
 @-webkit-keyframes chorreo {
   50% {
     height: 100px;
   }
 }
+
 @-o-keyframes chorreo {
   50% {
     height: 100px;
   }
 }
+
 @keyframes chorreo {
   50% {
     height: 100px;
   }
+}
+
+.massacred-meme {
+  width: 100%;
 }
 </style>

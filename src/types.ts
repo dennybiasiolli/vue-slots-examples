@@ -78,7 +78,8 @@ export enum Topping {
   OLIVES = 'olives',
   EGG = 'egg',
   ZUCCHINI = 'zucchini',
-  CHERRY_TOMATOES = 'cherry-tomatoes'
+  CHERRY_TOMATOES = 'cherry-tomatoes',
+  PINEAPPLES = 'pineapples'
 }
 
 export const toppingMap = {
@@ -113,5 +114,9 @@ export const toppingMap = {
   [Topping.CHERRY_TOMATOES]: {
     key: Topping.CHERRY_TOMATOES,
     name: 'Cherry tomatoes'
+  },
+  [Topping.PINEAPPLES]: {
+    key: Topping.PINEAPPLES,
+    name: 'Pineapples'
   }
 }
