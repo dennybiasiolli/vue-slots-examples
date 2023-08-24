@@ -1,0 +1,3 @@
+export function removeUndefined<T>(array: T[]): T[] {
+  // ...
+}

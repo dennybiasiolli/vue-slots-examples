@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { customFilter } from '@/utils/filters'
+import { customFilter } from '@/utils/filtersV4Final'
+import { customFilter as customFilterOK } from '@/utils/filtersV5'
 
 const array = [1, '', 'a', null, 'hello', undefined, 42, 0, 10, false, '0', true]
 console.log(array)
@@ -40,6 +41,9 @@ function getElementString(element: any) {
 
     <h2>Filter 6: optionally remove `'0'` elements</h2>
     <h3>{{ customFilter(array, true, true, true, true, true, true) }}</h3>
+
+    <h2>Filter 7: custom filtering</h2>
+    <h3>{{ customFilterOK(array, (elem) => elem !== 'hello') }}</h3>
   </div>
 </template>
 
@@ -55,3 +59,4 @@ h3 {
   padding-bottom: 1.5rem;
 }
 </style>
+@/utils/filtersV4Final
