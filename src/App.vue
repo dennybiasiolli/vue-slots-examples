@@ -11,11 +11,12 @@ import HelloWorld from './components/HelloWorld.vue'
       <HelloWorld msg="You did it!" />
 
       <nav>
-        <RouterLink to="/">Home</RouterLink>
+        <!-- <RouterLink to="/">Home</RouterLink> -->
         <RouterLink to="/filters">Filters</RouterLink>
+        <RouterLink to="/message-box">Message Box</RouterLink>
         <RouterLink to="/slots-examples">Slots</RouterLink>
         <RouterLink to="/pizza">Pizza</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <!-- <RouterLink to="/about">About</RouterLink> -->
       </nav>
     </div>
   </header>
