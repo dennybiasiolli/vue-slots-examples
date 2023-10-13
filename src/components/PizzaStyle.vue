@@ -39,14 +39,14 @@ const containsPineapple = computed(() =>
 </script>
 
 <template>
-  <img
-    v-if="containsPineapple"
-    class="massacred-meme"
-    alt="massacred meme"
-    src="@/assets/massacred-meme.png"
-  />
   <div class="pizza-container">
-    <div class="pizza">
+    <img
+      v-if="containsPineapple"
+      class="i-refuse-image"
+      alt="I refuse gif"
+      src="@/assets/i-refuse.gif"
+    />
+    <div v-else class="pizza">
       <div v-for="topping in toppings" :key="topping.key" class="topping" :class="topping.key">
         <div v-if="topping.key === 'basil'" class="leaf"></div>
       </div>
@@ -65,6 +65,7 @@ const containsPineapple = computed(() =>
   display: flex;
   justify-content: center;
   margin: 20px;
+  width: 400px;
 }
 
 .pizza {
@@ -274,7 +275,7 @@ const containsPineapple = computed(() =>
   }
 }
 
-.massacred-meme {
-  width: 100%;
+.i-refuse-image {
+  max-height: 400px;
 }
 </style>

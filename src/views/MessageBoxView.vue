@@ -13,20 +13,24 @@ import MessageBox from '@/components/MessageBox.vue'
     <h3>Example 3 (message and title, as slots)</h3>
     <MessageBox>
       <template #title>
-        <div :style="{
-          color: 'black',
-          fontSize: 'xx-large',
-          fontWeight: 'bold',
-          textAlign: 'center'
-        }">
+        <div
+          :style="{
+            color: 'black',
+            fontSize: 'xx-large',
+            fontWeight: 'bold',
+            textAlign: 'center'
+          }"
+        >
           <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="25" height="25" />
           Title
         </div>
       </template>
-      <div :style="{
-        color: 'black',
-        textAlign: 'center'
-      }">
+      <div
+        :style="{
+          color: 'black',
+          textAlign: 'center'
+        }"
+      >
         <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="50" height="50" />
         <div>My message 2</div>
       </div>

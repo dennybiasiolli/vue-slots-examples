@@ -17,6 +17,7 @@ describe('PizzaSlots', () => {
   it('with default content', () => {
     const wrapper = mount(PizzaSlots, {
       props: {
+        name: 'Custom pizza',
         crustStyle: crustStyleMap[CrustStyle.PAN],
         crustComposition: crustCompositionMap[CrustComposition.WHOLE],
         sauce: sauceMap[Sauce.TOMATO],
@@ -24,29 +25,45 @@ describe('PizzaSlots', () => {
       }
     })
     expect(wrapper.html()).toMatchSnapshot()
+    expect(wrapper.find('h1.pizza-title').text()).toBe('Custom pizza')
   })
 
-  it('with custom slot', () => {
+  it('with custom pizza slot', () => {
     const wrapper = mount(PizzaSlots, {
       props: {
+        name: 'Custom pizza',
         crustStyle: crustStyleMap[CrustStyle.PAN],
         crustComposition: crustCompositionMap[CrustComposition.WHOLE],
         sauce: sauceMap[Sauce.TOMATO],
         toppings: [toppingMap[Topping.MOZZARELLA], toppingMap[Topping.BASIL]]
       },
       slots: {
-        default: `<template #default="scope">
-          <h1>{{ scope.crustStyle.key }}</h1>
-          <h2>{{ scope.crustComposition.key }}</h2>
-          <h3>{{ scope.sauce.key }}</h3>
-          <h4>{{ scope.toppings.map(t => t.key).join(", ") }}</h4>
-        </template>`
+        pizza: "<h2>foobar</h2>",
       }
     })
     expect(wrapper.html()).toMatchSnapshot()
-    expect(wrapper.find('h1').text()).toBe('pan')
-    expect(wrapper.find('h2').text()).toBe('whole')
-    expect(wrapper.find('h3').text()).toBe('tomato')
-    expect(wrapper.find('h4').text()).toBe('mozzarella, basil')
+    expect(wrapper.find('h1.pizza-title').text()).toBe('Custom pizza')
+    expect(wrapper.find('h2').text()).toBe('foobar')
+  })
+
+  it('with custom topping scoped slot', () => {
+    const wrapper = mount(PizzaSlots, {
+      props: {
+        name: 'Custom pizza',
+        crustStyle: crustStyleMap[CrustStyle.PAN],
+        crustComposition: crustCompositionMap[CrustComposition.WHOLE],
+        sauce: sauceMap[Sauce.TOMATO],
+        toppings: [toppingMap[Topping.MOZZARELLA], toppingMap[Topping.BASIL]]
+      },
+      slots: {
+        topping: `<template #topping="{ topping }">abc-{{ topping.key }}</template>`,
+        // also usable as
+        // topping: 'abc-{{ params.topping.key }}',
+      }
+    })
+    expect(wrapper.html()).toMatchSnapshot()
+    expect(wrapper.find('h1.pizza-title').text()).toBe('Custom pizza')
+    expect(wrapper.findAll('li')[0].text()).toBe('abc-mozzarella')
+    expect(wrapper.findAll('li')[1].text()).toBe('abc-basil')
   })
 })

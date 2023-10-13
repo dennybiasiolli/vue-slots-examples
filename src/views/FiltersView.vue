@@ -43,7 +43,7 @@ function getElementString(element: any) {
     <h3>{{ customFilter(array, true, true, true, true, true, true) }}</h3>
 
     <h2>Filter 7: custom filtering</h2>
-    <h3>{{ customFilterOK(array, (elem) => elem !== 'hello') }}</h3>
+    <h3>{{ customFilterOK(array, (elem) => !!elem && elem !== 'hello') }}</h3>
   </div>
 </template>
 

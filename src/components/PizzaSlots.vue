@@ -2,6 +2,7 @@
 import { CrustComposition, CrustStyle, Sauce, Topping } from '@/types'
 
 export interface Props {
+  name?: string
   crustStyle: {
     key: CrustStyle
     name: string
@@ -27,46 +28,38 @@ defineProps<Props>()
 </script>
 
 <template>
-  <slot
-    :crustStyle="crustStyle"
-    :crustComposition="crustComposition"
-    :sauce="sauce"
-    :toppings="toppings"
-  >
-    <div
-      :style="{
-        border: `${crustStyle.size} solid ${crustComposition.color}`,
-        backgroundColor: crustComposition.color,
-        color: 'black',
-        margin: '5px',
-        padding: '2px'
-      }"
-    >
-      {{ crustStyle.name }}, made with {{ crustComposition.name.toLowerCase() }}
-      <div
-        :style="{
-          backgroundColor: sauce.color,
-          color: 'black',
-          margin: '5px',
-          padding: '2px'
-        }"
-      >
-        {{ sauce.name }}
-        <div>
-          <span
-            v-for="topping in toppings"
-            :key="topping.key"
-            :style="{
-              backgroundColor: 'lightgrey',
-              color: 'black',
-              margin: '2px',
-              padding: '2px'
-            }"
-          >
-            {{ topping.name }}
-          </span>
-        </div>
-      </div>
-    </div>
-  </slot>
+  <div class="pizza-box">
+    <h1 class="pizza-title">{{ name }}</h1>
+    <slot name="pizza">
+      <slot name="crust">
+        <div>{{ crustStyle.name }}, made with {{ crustComposition.name.toLowerCase() }}</div>
+      </slot>
+
+      <slot name="sauce" :sauce="sauce">
+        <div>{{ sauce.name }}</div>
+      </slot>
+
+      <slot name="toppings">
+        Toppings:
+        <ul>
+          <li v-for="topping in toppings" :key="topping.key">
+            <slot name="topping" :topping="topping">
+              {{ topping.name }}
+            </slot>
+          </li>
+        </ul>
+      </slot>
+    </slot>
+  </div>
 </template>
+
+<style scoped>
+.pizza-box {
+  border: 1px solid lightgrey;
+  padding: 5px;
+  width: 450px;
+}
+.pizza-title {
+  font-weight: bold;
+}
+</style>

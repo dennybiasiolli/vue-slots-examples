@@ -1,28 +1,9 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`PizzaStyle > with pineapple 1`] = `
-"<img data-v-2d497697=\\"\\" class=\\"massacred-meme\\" alt=\\"massacred meme\\" src=\\"/src/assets/massacred-meme.png\\">
-<div data-v-2d497697=\\"\\" class=\\"pizza-container\\">
-  <div data-v-2d497697=\\"\\" class=\\"pizza\\">
-    <div data-v-2d497697=\\"\\" class=\\"topping pepperoni\\">
-      <!--v-if-->
-    </div>
-    <div data-v-2d497697=\\"\\" class=\\"topping pineapples\\">
-      <!--v-if-->
-    </div>
-    <div class=\\"slices\\" data-v-2d497697=\\"\\">
-      <div class=\\"slice slice-1\\" data-v-2d497697=\\"\\"></div>
-      <div class=\\"slice slice-2\\" data-v-2d497697=\\"\\"></div>
-      <div class=\\"slice slice-3\\" data-v-2d497697=\\"\\"></div>
-      <div class=\\"slice slice-4\\" data-v-2d497697=\\"\\"></div>
-    </div>
-  </div>
-</div>"
-`;
+exports[`PizzaStyle > with pineapple 1`] = `"<div data-v-2d497697=\\"\\" class=\\"pizza-container\\"><img data-v-2d497697=\\"\\" class=\\"i-refuse-image\\" alt=\\"I refuse gif\\" src=\\"/src/assets/i-refuse.gif\\"></div>"`;
 
 exports[`PizzaStyle > without pineapple 1`] = `
-"<!--v-if-->
-<div data-v-2d497697=\\"\\" class=\\"pizza-container\\">
+"<div data-v-2d497697=\\"\\" class=\\"pizza-container\\">
   <div data-v-2d497697=\\"\\" class=\\"pizza\\">
     <div data-v-2d497697=\\"\\" class=\\"topping mozzarella\\">
       <!--v-if-->
