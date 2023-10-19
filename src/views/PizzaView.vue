@@ -69,7 +69,7 @@ const displayComponentVal = ref(0)
       </li>
     </ul>
 
-    <h1>Selected pizza</h1>
+    <br>
 
     <PizzaSlots
       v-if="displayComponentVal === 0"
@@ -191,6 +191,8 @@ const displayComponentVal = ref(0)
         />
       </template>
     </PizzaSlots>
+
+    <br><br><br><br>
   </div>
 </template>
 
